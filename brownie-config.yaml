@@ -1,0 +1,60 @@
+reports:
+  exclude_contracts:
+    - SafeMath
+dependencies:
+  - OpenZeppelin/openzeppelin-contracts@4.3.2
+  - UniSwap/v3-core@1.0.0
+  - UniSwap/v3-periphery@1.0.0
+  - ChainLink/chainlink@1.1
+compiler:
+  solc:
+    version: 0.7.6
+    remappings:
+      - "@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.3.2"
+      - "@uniswap/v3-core=UniSwap/v3-core@1.0.0"
+      - "@uniswap/v3-periphery=UniSwap/v3-periphery@1.0.0"
+      - "@chainlink=ChainLink/chainlink@1.1"
+# automatically fetch contract sources from Etherscan
+autofetch_sources: True
+# Uncomment to use the .env file
+# dotenv: .env
+# set a custom mnemonic for the development network
+networks:
+  default: development
+  development:
+    RNGServiceStub: "0x0328AcC09545F88e2c7aa8cb8c71CB66BA9015a1"
+    YieldSource: "0x36fDf4605DeEf87EC327112cEeCE03E6964616e8"
+    update_interval: 60
+    verify: False
+  eth-dev:
+    fee: 500
+    btc: "0x1C2f71a40E7448Dd578C752b570D676284004048"
+    usdc: "0x9191806b17D80546013bB6dAB6e9709e778Bb130"
+    sqrtPriceX96: 1000000000000
+    tickLower: -100000
+    tickUpper: 100000
+    amount: 80000
+    verify: False
+    save: "eth_dev.json"
+    from_key: "***"
+    test_key: "***"
+  polygon-weshare:
+    module: 0
+    router: "0x3a7C725C9852F03BFCD0741490A9D4738Cd4CbE8"
+    pool: "0xA374094527e1673A86dE625aa59517c5dE346d32"
+    stock_index: 0
+    verify: False
+    save: "eth_dev.json"
+    from_key: "***"
+    test_key: "***"
+  goerli-weshare:
+    BPT: "0x2DbE60FAB268b7927136DeCb377D676A0aBab913"
+    minterAmount: 100000000000000000000000
+    save: "options_goerli.json"
+    oracleManager: "0xB59a4A698AaD568B01E6AbdC2ff30f2293A6Bd40"
+    yieldManager: "0xB59a4A698AaD568B01E6AbdC2ff30f2293A6Bd40"
+    from_key: "***"
+wallets:
+  from_key: "*****"
+  address: "0x78B94517A5Acf30d06d228368ae8403B46235fBE"
+  from_mnemonic: ${MNEMONIC}
